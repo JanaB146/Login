@@ -3,30 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="./secure.css">
     <title>Login</title>
-    <link rel="stylesheet" href="./css/secure.css">
+    
 </head>
+
 <body>
     <div class="box">
         <div class="form">
-            <h2>Melde dich hier an</h2>
-            <div class="inputBox">
-                <input type="text" id="username" required="required">
-                <span>Benutzername</span>
-                <i></i>
-            </div>
-            <div class="inputBox">
-                <input type="text" id="password" required="required">
-                <span>Passwort</span>
-                <i></i>
-            </div>
-            <div class="links">
-                <a href="./index.html">Wo finde ich die Anmeldedaten?</a>
-            </div>
-            <button id="login" type="submit" value="Login">Login</button>
+            <form action="">
+                <h2>Melde dich hier an</h2>
+                <div class="inputBox">
+                    <input type="text" onfocus="this.value=''" id="username" required="required">
+                    <span>Benutzername</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" onfocus="this.value=''" id="password" required="required">
+                    <span>Passwort</span>
+                    <i></i>
+                </div>
+                <div class="links popup" onclick="anmeldedatenPopup()">Wo finde ich die Anmeldedaten?
+                        <span class="popuptext" id="myPopup"><p>Hier:</p><p>Benutzername: Bewerbung, Passwort: erfolgreich</p></span>
+                </div>
+                <button id="login" type="button" onclick="getInfo()">Login</button>
+            </form>
+            <form>
+                <div class="meldebox" onclick="failPopup()">
+                    <span class="popUptext" id="meinPopup">
+                        <p class="text">
+                            Die Eingabedaten waren leider nicht korrekt. 
+                        </p>
+                        <p class="text">
+                            Bitte versuch es noch einmal."
+                        </p>
+                    </span>
+                </div>
+            </form>
         </div>
-        <footer>
-        </footer>
     </div>
 </body>
-</html>

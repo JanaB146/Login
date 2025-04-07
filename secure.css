@@ -1,0 +1,243 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #23242a;
+}
+.box {
+    position:relative;
+    width:380px;
+    height:420px;
+    background:#1c1c1c;
+    border-radius: 8px;
+    overflow:hidden;
+}
+.box::before {
+    content:'';
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:380px;
+    height:420px;
+    background:linear-gradient(0deg,transparent,#45f3ff, #45f3ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+.box::after {
+    content:'';
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:380px;
+    height:420px;
+    background:linear-gradient(0deg,transparent,#45f3ff, #45f3ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+@keyframes animate 
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+    transform: rotate(360deg);
+    }
+}
+.form {
+    position:absolute;
+    inset:2px;
+    border-radius:8px;
+    background:#28292d;
+    z-index:10;
+    padding:40px 50px;
+    display:flex;
+    flex-direction: column;
+}
+.form h2 {
+    color: #45f3ff;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+.inputBox {
+    position:relative;
+    width:300px;
+    margin-top:35px;
+}
+.inputBox input {
+    position:relative;
+    width: 100%;
+    padding:20px 10px 10px;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:#23242a;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    z-index:10;
+}
+.inputBox span {
+    position:absolute;
+    left:0;
+    padding:20px 0px 10px;
+    font-size: 1em;
+    color:#8f8f8f;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition:0.5s;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
+    color:#45f3ff;
+    transform: translateX(0px) translateY(-34px);
+    font-size:0.75em;
+}
+.inputBox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #45f3ff;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index:9;
+}
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i {
+    height:44px;
+}
+
+.text {
+    line-height: 140%;
+    margin-top:5px;
+}
+
+
+button[type="button"] {
+    border:none;
+    outline: none;
+    background: #45f3ff;
+    padding:11px 25px;
+    width:100px;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor:pointer;
+}
+button[type="button"] {
+    opacity:0.8;
+}
+
+.meldebox {
+    visibility: hidden;
+    width: auto;
+    background-color: #40424e29;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    z-index: 1;
+}
+.meldebox .popUptext {
+    position: absolute;
+    visibility: hidden;
+    width: 300px;
+    height:100px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 10000;
+    top:200px;
+    right:30px;
+}
+
+/* Toggle this class - hide and show the popup */
+.meldebox .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+
+
+
+
+
+.links {
+    display:flex;
+    justify-content: space-between;
+}
+
+.links a:hover {
+    color:#45f3ff;
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color:#8f8f8f;
+    margin:30px 0;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 30;
+    bottom: 140%;
+    left:-20px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
